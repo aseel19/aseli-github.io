@@ -1,0 +1,206 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="CSS\Style.CSS">
+        <script src="JavaScript/index.js"></script>
+        <script>
+
+    function calcPrice(){
+        var totalPrice=0;
+        var clo1=document.getElementById("clothes1");
+        var clo2=document.getElementById("clothes2");
+        var clo3=document.getElementById("clothes3");
+        var clo4=document.getElementById("clothes4");
+        var clo5=document.getElementById("clothes5");
+
+            if(clo1.checked){
+                totalPrice=totalPrice + 10;
+            }
+
+            if(clo2.checked){
+                totalPrice=totalPrice + 10;
+            }
+
+            if(clo3.checked){
+                totalPrice=totalPrice + 20;
+            }
+
+            if(clo4.checked){
+                totalPrice=totalPrice + 30;
+            }
+
+            if(clo5.checked){
+                totalPrice=totalPrice + 50;
+            }
+
+        var log=document.getElementById("logo");
+        var log2=document.getElementById("logo2");
+        var log3=document.getElementById("logo3");
+        var log4=document.getElementById("logo4");
+
+            if(log.checked){
+                totalPrice=totalPrice + 3;
+            }
+            if(log2.checked){
+                totalPrice=totalPrice + 3;
+            }
+            if(log3.checked){
+                totalPrice=totalPrice + 3;
+            }
+            if(log4.checked){
+                totalPrice=totalPrice + 3;
+            }
+
+        var si1=document.getElementById("sizeS");
+        var si4=document.getElementById("sizeXl");
+
+            if(si1.checked){
+                totalPrice=totalPrice *0.9;
+            }
+            if(si4.checked){
+                totalPrice=totalPrice *1.10;
+            }
+ 
+
+     document.getElementById("txt").value=totalPrice;
+    }
+
+function mult(){
+    var n1=document.getElementById('txt').value;
+    var n2=document.getElementById('n2').value;
+    var oper=document.getElementById('operation').value;
+
+    if(oper === 'done'){
+        var n2=document.getElementById('result').value = n1*n2;
+
+    }
+}
+
+        </script>
+    </head>
+    <body style="background-color:rgba(190, 175, 177, 0.418);
+    align-items: center;
+    border-image: fill;
+    background-repeat: repeat;">
+        <center>
+        <form action="https://formspree.io/f/moqpkgzq" method="POST">
+        <h1 id="h1title" style="color: black;"> -ADIDAS-</h1>
+        <img  src="https://st-adidas-isr.mncdn.com/content/img/rnd-adidas-logo.png" width="20%"></img>
+        <br>
+
+        <p id="conText">Make an order: </p>
+        <br>
+        <label>
+            Order Number:<br>
+        </label>
+        <input type="text" name="orderName" placeholder="Name Id" size="25" value="29760734" disabled onclick="calcPrice()">
+        <br><br>
+        <label>
+            First Name*:<br>
+        </label>
+        <input type="text" name="name" placeholder="First Name" size="25" maxlength="20" >
+        <br><br>
+        <label>
+            Last Name*:<br>
+        </label>
+        <input type="text" name="name" placeholder="Last Name" size="25" maxlength="20">
+        <br><br>
+        <label for="clothes">Type of wearer:</label><br>
+        <input type="radio" id="clothes1" name="clothes" value="clo1" checked="checked" onclick="calcPrice();"/>
+        <label for="clothes">Shirt</label><br>
+        <input type="radio" id="clothes2" name="clothes" value="clo2" onclick="calcPrice();">
+        <label for="clothes">Undershirt</label><br>
+        <input type="radio" id="clothes3" name="clothes" value="clo3" onclick="calcPrice();" >
+        <label for="clothes"> Sweater</label><br>
+        <input type="radio" id="clothes4" name="clothes" value="clo4" onclick="calcPrice();">
+        <label for="clothes">Hoodie</label><br>
+        <input type="radio" id="clothes5" name="clothes" value="clo5" onclick="calcPrice();" >
+        <label for="clothes">Coat</label><br>
+        <br>
+        <label for="color">Color:</label><br>
+        <select id="color"  onclick="calcPrice()">
+            <option value="colo1" >Red</option>
+            <option value="colo2" name="B" onclick="calcPrice()">Blue</option>
+            <option value="colo3" name="G" onclick="calcPrice()">Green</option> 
+            <option value="colo4" selected>White</option>
+        </select>
+        <br><br>
+        <label for="size">Size*:</label><br>
+        <input type="radio" id="sizeS" name="clothes1" value="size" onclick="calcPrice()">
+        <label for="clothes">S</label><br>
+        <input type="radio" id="sizeM" name="clothes1" value="size2" onclick="calcPrice()">
+        <label for="clothes">M</label><br>
+        <input type="radio" id="sizeL" name="clothes1" value="size3" onclick="calcPrice()" >
+        <label for="clothes">L</label><br>
+        <input type="radio" id="sizeXl" name="clothes1" value="size4" onclick="calcPrice()">
+        <label for="clothes">XL</label><br>
+        <br>
+        <label>Position of the group logo:</label><br>
+        <input type="checkbox" id="logo" name="logo1" value="logo1" onclick="calcPrice();">
+        <label for="logo1">Forward</label><br>
+        <input type="checkbox" id="logo2" name="logo" value="logo2" onclick="calcPrice();">
+        <label for="logo1">Backwards</label><br>
+        <input type="checkbox" id="logo3" name="logo" value="logo3" onclick="calcPrice();">
+        <label for="logo1">Right sleeve</label><br>
+        <input type="checkbox" id="logo4" name="logo" value="logo4" onclick="calcPrice();">
+        <label for="logo1">Left sleeve</label>
+        <br><br>
+
+      
+        <label>Infinite price  </label>
+        <input type="text" id="txt" value="10" size="2">
+        <p>*Let's say you chosed a shirt!</p> <br>
+    
+
+        <label>Quantity of this product:</label>
+        <input type="text" id="n2" size="2" > <br><br>
+       
+        <select id="operation">
+            <option value="done" selected> Done! </option>
+            <option value="-"> Continue.. </option>
+        </select>
+
+        <input type="text" id="result" size="2"/><br>
+
+
+        <button onclick="mult();">Tap for final price</button>
+        <br><br>
+         
+
+        <label> Address*:<br>
+            <textarea name="address" rows="10" cols="30"></textarea>
+        </label>
+
+        <br><br>
+
+       
+
+        <input type="submit" value="Send an invitation">
+        <input type="reset" value="Start from the beginning"><br><br>
+        <hr width=50%>
+        <p>
+            If you encounter a problem, please write your number and we will contact you later!
+        </p>
+        <label>
+            Number to contact:<br>
+        </label>
+        <input type="text" name="name" placeholder="phone Number" size="1" value="05" disabled>
+        <input type="text" name="name" placeholder="phone Number" size="20" maxlength="8">
+        <br>
+        <input type="text" name="name" placeholder="phone Number" size="1" value="04" disabled>
+        <input type="text" name="name" placeholder="Home/Work Number" size="20" maxlength="6">
+        <br><br>
+        <input type="text" name="name" placeholder="Your Name" size="25" maxlength="20"><br><br>
+        <input type="submit" value="Send"><br>
+        <hr width=50%>
+        <p>
+            *If you want to visit our Website
+        </p>
+         <a href="https://www.adidas.co.il/he/end-season-sale?gclid=CjwKCAiAxeX_BRASEiwAc1QdkRaGZnAQudAiScTHC_p1z8juQutEEiVzP425rSa6o2VbFMpF8_u7uxoC1RsQAvD_BwE" target="_blank"><H3> *Pass here</H3></a>
+      
+        </form> 
+    </center>
+       
+    <a href="indeex.html"><H4 id="h3id">&gt&gt Back to Master page</H4></a>
+
+    </body>
+</html>
